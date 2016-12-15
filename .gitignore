@@ -1,3 +1,4 @@
 out
 node_modules
 atom-regex-railroad-diagrams
+.vscode-test

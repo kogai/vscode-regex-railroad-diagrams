@@ -5,6 +5,7 @@
         "outDir": "out",
         "strictNullChecks": true,
         "noImplicitAny": true,
+        "noUnusedLocals": true,
         "lib": [
             "es6"
         ],
