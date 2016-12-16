@@ -14,14 +14,6 @@
         "onLanguage:javascript"
     ],
     "main": "./out/src/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            }
-        ]
-    },
     "scripts": {
         "tsc": "$(npm bin)/tsc",
         "eslint": "$(npm bin)/eslint **/*.ts",
@@ -36,6 +28,8 @@
         "@types/node": "^6.0.40",
         "eslint": "^3.12.2",
         "mocha": "^2.3.3",
+        "rxjs": "^5.0.1",
+        "tape": "^4.6.3",
         "typescript": "^2.1.4",
         "typescript-eslint-parser": "^1.0.0",
         "vscode": "^1.0.0"
