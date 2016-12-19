@@ -1,20 +1,16 @@
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 os:
-  - osx
-  - linux
-
+- osx
+- linux
 before_install:
-  - if [ $TRAVIS_OS_NAME == "linux" ]; then
-      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
-      sh -e /etc/init.d/xvfb start;
-      sleep 3;
-    fi
-
+- if [ $TRAVIS_OS_NAME == "linux" ]; then export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+  sh -e /etc/init.d/xvfb start; sleep 3; fi
 script:
-  - npm run vscode:prepublish
-  - npm test --silent
-
+- npm run vscode:prepublish
+- npm test --silent
 cache: yarn
+env:
+  global:
+    secure: nW8JTtGph4/VWbSID3ZoZ2AMjEvDxdiG80fnNslZg/8me+ATByg/Csg32GSaaSqBcSKEyNPuhf3AP8+6jgjn0GpDAdlfE+aSAVNqNXPb0zcQFydubSPlWb1tnigAl7QPuLhIREzPdtOaKVLDKuLKkQgBWropDNfNQr9UBd4xINOVV3/8TkL34/FFaILKc8vbs9ceQyWu1mkzuNP5kOCYHbZTaURqxkf2L+tXxGd2frc/F6IMgay1j1CL4XduUiDzioOxM8wDbr04/eoH/Amb0TbvVc24pSZY//yNTav8NlFyi5InD8POr8HJiPeXx+YsYVMDtNPerGisxa+BVaxH9DtSW+ErO6a4PfgEh/LhxHvyU6PyGUr5vL5lNBs0xMqBsbs7jhZhMytgMvN1vVYcOdNmkfwg7O8wjQ+DnHehKys68ckF+LfRQQaAEtd3aUqpiJuzMdc+UtuMJG6eiNaze8G+Ic8loWvTxStt2Ed5Uu4TeuhjdoDr4DbxbJ10p2OPb1usAuuatEgGQOHGuN+TxnI85xePgczu/Ra7YB3L88nIWIkNgrf3PczSaljOnXKy2m684iK55FF/YY2uABXvG0Je0SrLKjfrw4S8r8+CokRAiveiXpEBNQb9EjaAW6wBkvHHsnHdwVbQzdLhEDP1bIS7sluVpWRsSBoHJCJ0djA=
