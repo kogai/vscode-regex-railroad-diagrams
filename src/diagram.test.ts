@@ -2,7 +2,7 @@ import {deepStrictEqual} from "assert"
 import {extractRegex, lexer, tokenize} from "./diagram"
 
 describe("diagram", () => {
-  it("should tokenize line", () => {
+  it("can tokenize line", () => {
     deepStrictEqual(lexer("const foo = /foo/g; const"), [
       { value: "c", prev: undefined, next: "o", kind: "Extraneous", inRegex: false, offset: 0 },
       { value: "o", prev: "c", next: "n", kind: "Extraneous", inRegex: false, offset: 1 },
@@ -171,16 +171,16 @@ describe("diagram", () => {
       {body: "foo", option: "g"}
     ])
   })
-
   it("can extract regex string", () => {
     deepStrictEqual(extractRegex("const foo = /foo/g; const"), [{body: "foo", option: "g"}])
   })
-
   it("can extract regex string with multiple-flag", () => {
     deepStrictEqual(extractRegex("const foo = /foo/gim const bar = /bar.?/"), [{body: "foo", option: "gim"}, {body: "bar.?"}])
   })
-
   it("can extract regex string with single comment", () => {
     deepStrictEqual(extractRegex("const foo = /foo/gim // comment"), [{body: "foo", option: "gim"}])
+  })
+  it("can extract with regex string", () => {
+    deepStrictEqual(extractRegex("/foo/g"), [{body: "foo", option: "g"}])
   })
 })

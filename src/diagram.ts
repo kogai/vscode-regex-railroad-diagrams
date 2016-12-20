@@ -21,14 +21,14 @@ export const lexer = (ss: string, tokens: RegExpToken[] = []): RegExpToken[] => 
   }
   const value = ss[0]
   const tail = ss.slice(1)
-  const prevToken = tokens[tokens.length - 1]
-  const prev = prevToken ? prevToken.value : undefined
+  const prevToken = tokens[tokens.length - 1] || { offset: -1 }
+  const prev = prevToken.value
   const next = tail[0]
-  const offset = prevToken ? prevToken.offset + 1 : 0
+  const offset = prevToken.offset + 1
 
   let kind: string
   let inRegex: boolean
-  const isPreviousRegex = prevToken && prevToken.inRegex
+  const isPreviousRegex = !!prevToken.value && prevToken.inRegex
 
   if (value === "/") {
     if (prevToken.value === "\\") {
