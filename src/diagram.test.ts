@@ -1,7 +1,7 @@
 import {deepStrictEqual} from "assert"
-import {extractRegex, lexer, tokenize} from "./utils"
+import {extractRegex, lexer, tokenize} from "./diagram"
 
-describe("utils", () => {
+describe("diagram", () => {
   it("should tokenize line", () => {
     deepStrictEqual(lexer("const foo = /foo/g; const"), [
       { value: "c", prev: undefined, next: "o", kind: "Extraneous", inRegex: false, offset: 0 },
@@ -167,20 +167,20 @@ describe("utils", () => {
       { value: "/", prev: "o", next: "g", kind: "RegexLiteralEnd", inRegex: true, offset: 31 },
       { value: "g", prev: "/", next: ";", kind: "RegexLiteralOption", inRegex: true, offset: 32 },
     ]), [
-      /foo/g,
-      /foo/g
+      {body: "foo", option: "g"},
+      {body: "foo", option: "g"}
     ])
   })
 
   it("can extract regex string", () => {
-    deepStrictEqual(extractRegex("const foo = /foo/g; const"), [/foo/g])
+    deepStrictEqual(extractRegex("const foo = /foo/g; const"), [{body: "foo", option: "g"}])
   })
 
   it("can extract regex string with multiple-flag", () => {
-    deepStrictEqual(extractRegex("const foo = /foo/gim const bar = /bar.?/"), [/foo/gim, /bar.?/])
+    deepStrictEqual(extractRegex("const foo = /foo/gim const bar = /bar.?/"), [{body: "foo", option: "gim"}, {body: "bar.?"}])
   })
 
   it("can extract regex string with single comment", () => {
-    deepStrictEqual(extractRegex("const foo = /foo/gim // comment"), [/foo/gim])
+    deepStrictEqual(extractRegex("const foo = /foo/gim // comment"), [{body: "foo", option: "gim"}])
   })
 })
