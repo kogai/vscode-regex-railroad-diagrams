@@ -13,6 +13,14 @@
     "activationEvents": [
         "onLanguage:javascript"
     ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.showRegExpPreview",
+                "title": "Show RegExp preview"
+            }
+        ]
+    },
     "main": "./out/src/extension",
     "scripts": {
         "tsc": "$(npm bin)/tsc",
@@ -26,6 +34,7 @@
         "test": "npm run eslint && npm run tsc && npm run test:unit && npm run test:e2e"
     },
     "devDependencies": {
+        "@kogai/railroad-diagrams": "^0.16.0",
         "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
         "eslint": "^3.12.2",

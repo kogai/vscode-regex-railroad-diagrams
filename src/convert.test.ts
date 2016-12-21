@@ -18,6 +18,6 @@ describe("convert", () => {
     })
     deepStrictEqual(diagram.tagName, "svg")
     deepStrictEqual(diagram.attrs, {class: "railroad-diagram"})
-    deepStrictEqual
+    deepStrictEqual(diagram.items.length, 3)
   })
 })

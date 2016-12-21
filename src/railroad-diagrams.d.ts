@@ -1,4 +1,4 @@
-declare module "@kogai/railroad-diagrams/lib/railroad-diagrams" {
+declare module "@kogai/railroad-diagrams" {
   export class FakeSVG {
     items: FakeSVG[]
     tagName: string
@@ -7,12 +7,12 @@ declare module "@kogai/railroad-diagrams/lib/railroad-diagrams" {
     up: number
     down: number
     constructor(tagName: any, attrs: any, text?: any)
-    addTo(parent: FakeSVG): FakeSVG
+    addTo(parent: HTMLElement): HTMLElement
   }
 
   export class Sequence extends FakeSVG { constructor(x: any) }
   export class Choice extends FakeSVG { constructor(x: any, y: any) }
-  export class Terminal extends FakeSVG { constructor(x: any, y?: any) }
+  // export class Terminal extends FakeSVG { constructor(x: any, y?: any) }
   export class Path extends FakeSVG {
     constructor(x: any, y?: any)
     h(x: any): FakeSVG
@@ -25,5 +25,6 @@ declare module "@kogai/railroad-diagrams/lib/railroad-diagrams" {
   export function ZeroOrMore(x: any, y: any): FakeSVG
   export function Comment(x: any, y: any): FakeSVG
   export function NonTerminal(x: any, y?: any): FakeSVG
-  export function Group(x: any, y?: any, z: any): FakeSVG
+  export function Terminal(x: any, y?: any): FakeSVG
+  export function Group(x: any, y?: any, z?: any): FakeSVG
 }

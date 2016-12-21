@@ -1,24 +1,31 @@
-import {window, ExtensionContext} from "vscode"
-import {extractRegex} from "./diagram"
-import {regexToRailRoadDiagram} from "./convert"
+import {window, ExtensionContext, commands, workspace, ViewColumn} from "vscode"
+import {RegExpProvider, PREVIEW_URI, PREVIEW_PROTCOL} from "./element"
 
 /**
  * Entry point of extension.
  */
 export function activate(context: ExtensionContext) {
-  context.subscriptions.push(window.onDidChangeTextEditorSelection(({selections}) => {
+  const provider = new RegExpProvider()
+  context.subscriptions.push(workspace.registerTextDocumentContentProvider(PREVIEW_PROTCOL, provider))
+  context.subscriptions.push(commands.registerCommand("extension.showRegExpPreview", () => commands
+      .executeCommand("vscode.previewHtml", PREVIEW_URI, ViewColumn.Two, "RegExp Diagram Preview")
+      .then((success) => {}, window.showErrorMessage)
+    ))
+
+  workspace.onDidChangeTextDocument(event => {
     const editor = window.activeTextEditor
-    if (!editor) {
+    if (!editor || event.document !== editor.document) {
       return
     }
-    const {anchor} = selections[0]
-    const regexStrings = extractRegex(editor.document.lineAt(anchor.line).text)
-    if (!regexStrings) {
+    provider.update(PREVIEW_URI)
+  })
+
+  window.onDidChangeTextEditorSelection(event => {
+    if (event.textEditor !== window.activeTextEditor) {
       return
     }
-    const elements = regexStrings.map(regexToRailRoadDiagram)
-    console.log(elements)
-  }))
+    provider.update(PREVIEW_URI)
+  })
 }
 
 export function deactivate() {}

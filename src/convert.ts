@@ -1,6 +1,6 @@
 import regexp = require("regexp")
 
-import {Diagram, Sequence, Choice, Optional, OneOrMore, ZeroOrMore, Terminal, NonTerminal, Comment, Group} from "@kogai/railroad-diagrams/lib/railroad-diagrams"
+import {Diagram, Sequence, Choice, Optional, OneOrMore, ZeroOrMore, Terminal, NonTerminal, Comment, Group} from "@kogai/railroad-diagrams"
 import {RegexString} from "./diagram"
 
 const doSpace = () => NonTerminal("SP", {title: "Space character", class: "literal whitespace"})
