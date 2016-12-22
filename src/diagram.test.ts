@@ -183,4 +183,8 @@ describe("diagram", () => {
   it("can extract with regex string", () => {
     deepStrictEqual(extractRegex("/foo/g"), [{body: "foo", option: "g"}])
   })
+  it("/(^ +| {2,}| +$)/", () => {
+    const expect = extractRegex("const parts = text.split(/(^ +| {2,}| +$)/)")
+    deepStrictEqual(expect, [{body: "(^ +| {2,}| +$)"}])
+  })
 })

@@ -51,7 +51,7 @@ export const lexer = (ss: string, tokens: RegExpToken[] = []): RegExpToken[] => 
           kind = TokenKind[TokenKind.Extraneous]
           inRegex = false
         } else {
-          kind = isPreviousRegex ? TokenKind[TokenKind.RegexLiteralBody] : TokenKind[TokenKind.Extraneous]
+          kind = isPreviousRegex && prevToken.kind !== TokenKind[TokenKind.RegexLiteralEnd] ? TokenKind[TokenKind.RegexLiteralBody] : TokenKind[TokenKind.Extraneous]
           inRegex = isPreviousRegex
         }
       }

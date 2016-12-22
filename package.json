@@ -2,7 +2,7 @@
     "name": "regex-railroad-diagrams",
     "displayName": "Regex Railroad Diagrams",
     "description": "Display railroad diagram of regex under cursor.",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "publisher": "kogai",
     "repository": {
         "type": "git",
