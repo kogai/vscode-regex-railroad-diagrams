@@ -1,8 +1,8 @@
 {
-    "name": "vscode-regex-railroad-diagrams",
-    "displayName": "vscode-regex-railroad-diagrams",
+    "name": "regex-railroad-diagrams",
+    "displayName": "Regex Railroad Diagrams",
     "description": "Display railroad diagram of regex under cursor.",
-    "version": "0.1.0",
+    "version": "0.1.4",
     "publisher": "kogai",
     "engines": {
         "vscode": "^1.8.0"
@@ -38,15 +38,17 @@
         "test:unit:watch": "$(npm bin)/watch 'npm run test:unit' ./src/",
         "test": "npm run eslint && npm run tsc && npm run test:unit && npm run test:e2e"
     },
-    "devDependencies": {
+    "dependencies": {
         "@kogai/railroad-diagrams": "^0.16.0",
+        "railroad-diagrams": "^1.0.0",
+        "regexp": "^1.0.0",
+        "rxjs": "^5.0.1"
+    },
+    "devDependencies": {
         "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
         "eslint": "^3.12.2",
         "mocha": "^2.3.3",
-        "railroad-diagrams": "^1.0.0",
-        "regexp": "^1.0.0",
-        "rxjs": "^5.0.1",
         "typescript": "^2.1.4",
         "typescript-eslint-parser": "^1.0.0",
         "vsce": "^1.18.0",
