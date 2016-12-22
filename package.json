@@ -2,8 +2,12 @@
     "name": "regex-railroad-diagrams",
     "displayName": "Regex Railroad Diagrams",
     "description": "Display railroad diagram of regex under cursor.",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "publisher": "kogai",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kogai/vscode-regex-railroad-diagrams.git"
+    },
     "engines": {
         "vscode": "^1.8.0"
     },
