@@ -2,7 +2,7 @@
     "name": "vscode-regex-railroad-diagrams",
     "displayName": "vscode-regex-railroad-diagrams",
     "description": "Display railroad diagram of regex under cursor.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "kogai",
     "engines": {
         "vscode": "^1.8.0"
@@ -28,6 +28,8 @@
         "vscode:prepublish": "$(npm bin)/tsc -p ./",
         "compile": "$(npm bin)/tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
+        "package": "$(npm bin)/vsce package",
+        "publish": "$(npm bin)/vsce publish -p $VISUAL_STUDIO_CODE_ACCESS_TOKEN",
         "test:e2e": "node ./node_modules/vscode/bin/test",
         "test:unit": "script -q /dev/null $(npm bin)/mocha $(find ./out/src -name '*.test.js') | grep -v -x -F 'npm ERR'",
         "test:unit:watch": "$(npm bin)/watch 'npm run test:unit' ./src/",
@@ -44,6 +46,7 @@
         "rxjs": "^5.0.1",
         "typescript": "^2.1.4",
         "typescript-eslint-parser": "^1.0.0",
+        "vsce": "^1.18.0",
         "vscode": "^1.0.0",
         "watch": "^1.0.1"
     }

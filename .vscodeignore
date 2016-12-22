@@ -2,8 +2,15 @@
 .vscode-test/**
 out/test/**
 test/**
+*.test.js
 src/**
 **/*.map
 .gitignore
 tsconfig.json
 vsc-extension-quickstart.md
+sandbox.*
+*.log
+.travis.yml
+.eslintrc.json
+references.d.ts
+TODO
