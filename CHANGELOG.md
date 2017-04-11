@@ -1,7 +1,9 @@
 # Change Log
-All notable changes to the "wordcount" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## 0.2.0 - 11th April, 2017
+- Fix bugs
+
+## 0.1.6 - 12th December, 2016
+- Initial release
 
 ## [Unreleased]
-- Initial release
