@@ -1,4 +1,4 @@
-declare module "@kogai/railroad-diagrams" {
+declare module "railroad-diagrams" {
   export class FakeSVG {
     items: FakeSVG[]
     tagName: string

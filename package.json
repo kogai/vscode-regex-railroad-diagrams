@@ -42,9 +42,8 @@
         "test": "yarn lint && yarn tsc && yarn test:unit"
     },
     "dependencies": {
-        "@kogai/railroad-diagrams": "^0.16.0",
         "railroad-diagrams": "^1.0.0",
-        "regexp": "^1.0.0",
+        "regexp": "1.4.0",
         "rxjs": "^5.0.1"
     },
     "devDependencies": {
