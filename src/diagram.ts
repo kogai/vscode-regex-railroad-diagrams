@@ -3,13 +3,13 @@ export interface RegexString {
   option?: string
 }
 
-const rx = /\/(.*[^\/])\/(?!\/)([gimy]*)+/g;
+const rx = /\/(.*[^\/])\/(?!\/)([gimy]*)+/g
 
 export const extractRegex = (s: string): RegexString[] => {
   const results: RegexString[] = []
   let result: RegExpExecArray | null = null
 
-  while (result = rx.exec(s)) {
+  while (result = rx.exec(s)) { // eslint-disable-line 
     const body = result[1]
     const option = result[2]
 

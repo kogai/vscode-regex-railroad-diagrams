@@ -20,20 +20,20 @@ describe("diagram", () => {
       deepStrictEqual(expect, [{body: "(^ +| {2,}| +$)"}])
     })
     it("'/^(props|state)$/',", () => {
-      const expect = extractRegex(`"/^(props|state)$/",`)
+      const expect = extractRegex("\"/^(props|state)$/\",")
       deepStrictEqual(expect, [{body: "^(props|state)$"}])
     })
     it("/some_directory\/foo/", () => {
-      const expect = extractRegex(`/some_directory\/foo/`)
+      const expect = extractRegex("/some_directory\/foo/")
       deepStrictEqual(expect, [{body: "some_directory\/foo"}])
     })
     it("/some_directory\/foo\/bar/", () => {
-      const expect = extractRegex(`/some_directory\/foo\/bar/`)
+      const expect = extractRegex("/some_directory\/foo\/bar/")
       deepStrictEqual(expect, [{body: "some_directory\/foo\/bar"}])
     })
-    it('dogfooding', () => {
-      const expect = extractRegex(`const rx = /\/(.*[^\/])\/(?!\/)([gimy]*)+/g;`)
+    it("dogfooding", () => {
+      const expect = extractRegex("const rx = /\/(.*[^\/])\/(?!\/)([gimy]*)+/g;")
       deepStrictEqual(expect, [{body: "\/(.*[^\/])\/(?!\/)([gimy]*)+", option: "g"}])
-    });
+    })
   })
 })
