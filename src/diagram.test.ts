@@ -31,5 +31,9 @@ describe("diagram", () => {
       const expect = extractRegex(`/some_directory\/foo\/bar/`)
       deepStrictEqual(expect, [{body: "some_directory\/foo\/bar"}])
     })
+    it('dogfooding', () => {
+      const expect = extractRegex(`const rx = /\/(.*[^\/])\/(?!\/)([gimy]*)+/g;`)
+      deepStrictEqual(expect, [{body: "\/(.*[^\/])\/(?!\/)([gimy]*)+", option: "g"}])
+    });
   })
 })
