@@ -49,11 +49,11 @@
     },
     "devDependencies": {
         "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
+        "@types/node": "^7.0.12",
         "eslint": "^3.12.2",
-        "mocha": "^2.3.3",
+        "mocha": "^3.2.0",
         "typescript": "^2.1.4",
-        "typescript-eslint-parser": "^1.0.0",
+        "typescript-eslint-parser": "^2.1.0",
         "vsce": "^1.18.0",
         "vscode": "^1.0.0",
         "watch": "^1.0.1"
