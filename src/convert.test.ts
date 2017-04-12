@@ -20,4 +20,12 @@ describe("convert", () => {
     deepStrictEqual(diagram.attrs, {class: "railroad-diagram"})
     deepStrictEqual(diagram.items.length, 3)
   })
+  it("/(^ +| {2,}| +$)/", () => {
+    const diagram = regexToRailRoadDiagram({
+      body: "(^ +| {2,}| +$)",
+    })
+    deepStrictEqual(diagram.tagName, "svg")
+    deepStrictEqual(diagram.attrs, {class: "railroad-diagram"})
+    deepStrictEqual(diagram.items.length, 3)
+  })
 })
