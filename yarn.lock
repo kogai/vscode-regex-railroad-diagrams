@@ -1630,9 +1630,13 @@ queue@^3.0.10, queue@^3.1.0:
   dependencies:
     inherits "~2.0.0"
 
-railroad-diagrams@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
+"railroad-diagrams@git+ssh://git@github.com/kogai/railroad-diagrams.git#gh-pages":
+  version "1.1.0"
+  resolved "git+ssh://git@github.com/kogai/railroad-diagrams.git#616901ac1a461a268c6fd8ddcc9cf9225f0a7ed3"
+
+"railroad-diagrams@git+ssh://git@github.com/kogai/railroad-diagrams.git#master":
+  version "1.1.0"
+  resolved "git+ssh://git@github.com/kogai/railroad-diagrams.git#bb40fb7f89038c28db6c83f4f80a5adb668e8be0"
 
 randomatic@^1.1.3:
   version "1.1.6"

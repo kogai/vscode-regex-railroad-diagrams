@@ -1,4 +1,4 @@
-import {Path, Terminal, Diagram, Skip, FakeSVG} from "railroad-diagrams"
+import {Terminal, Diagram, Skip, FakeSVG, Path} from "railroad-diagrams"
 
 const isString = (value: any): value is string => {
   return (typeof value) == "string"
@@ -24,6 +24,7 @@ const determineGaps = (outer: any, inner: any) => {
 
 export class Group extends Skip {
   item: FakeSVG
+  items: FakeSVG[]
   caption: FakeSVG
   padding: number
   width: number
@@ -64,20 +65,22 @@ export class Group extends Skip {
     x += gaps[0]
 
     new FakeSVG("rect", {
-      x:x, y:y-this.up,
-      width:this.width, height:this.up+this.down,
-      rx: 5, ry: 5
+      x: x,
+      y: y - this.up,
+      width: this.width,
+      height: this.up + this.down,
+      rx: 5,
+      ry: 5
     }).addTo(this)
 
     this.item.format(x, y, this.width).addTo(this)
 
     if (this.caption) {
-      var caption_y = y + this.item.down + Diagram.VERTICAL_SEPARATION + this.caption.up
-      var caption_x = x + (this.width - this.caption.width) / 2
+      const caption_y = y + this.item.down + Diagram.VERTICAL_SEPARATION + this.caption.up
+      const caption_x = x + (this.width - this.caption.width) / 2
       this.caption.format(caption_x, caption_y, this.caption.width).addTo(this)
     }
 
-    // FakeSVG('text', {x:x+this.width/2, y:y+4}, this.text).addTo(this);
     return this
   }
 }

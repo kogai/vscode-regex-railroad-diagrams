@@ -42,7 +42,7 @@
         "test": "yarn lint && yarn tsc && yarn test:unit"
     },
     "dependencies": {
-        "railroad-diagrams": "^1.0.0",
+        "railroad-diagrams": "git+ssh://git@github.com/kogai/railroad-diagrams.git#master",
         "regexp": "^1.0.0",
         "rxjs": "^5.0.1"
     },
