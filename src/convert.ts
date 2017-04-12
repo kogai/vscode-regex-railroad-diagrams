@@ -325,14 +325,9 @@ const rx2rr = function (node: any, options: string): any {
         }
       }
     } else {
-      const list = charset.slice(0, -1).join(", ")
-
-      for (let i = 0; i < list.length; i++) {
-        const x = list[i]
-        if (x === " ") {
-          list[i] = "SP"
-        }
-      }
+      const list = charset
+        .slice(0, -1)
+        .join(",")
 
       if (node.invert) {
         return NonTerminal(`not ${list} and ${charset.slice(-1)}`, { class: "character-class invert" })
@@ -392,4 +387,9 @@ var quantifiedComment = function (comment: string, greedy: string, attrs: any) {
   }
 }
 
-export const regexToRailRoadDiagram = (regex: RegexString) => Diagram(rx2rr(regexp(regex.body), regex.option || ""))
+export const regexToRailRoadDiagram = (regex: RegexString) => {
+  const body = regexp(regex.body)
+  const option = regex.option || ""
+  const railroad = rx2rr(body, option)
+  return Diagram(railroad)
+}
