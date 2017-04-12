@@ -7,7 +7,8 @@ declare module "railroad-diagrams" {
     up: number
     down: number
     constructor(tagName: any, attrs: any, text?: any)
-    addTo(parent: HTMLElement): HTMLElement
+    format(x: any, y: any, width?: any): this
+    addTo(parent: FakeSVG): HTMLElement
   }
 
   export class Sequence extends FakeSVG { constructor(x: any) }
@@ -19,12 +20,18 @@ declare module "railroad-diagrams" {
   }
   export class Skip extends FakeSVG {}
 
-  export function Diagram(x: any, y?: any): FakeSVG
+  interface DiagramStatic {
+    INTERNAL_ALIGNMENT: string
+    VERTICAL_SEPARATION: number
+    (x: any, y?: any): FakeSVG
+    new(x: any, y?: any): FakeSVG
+  }
+  export const Diagram: DiagramStatic
+
   export function Optional(x: any, y?: any): FakeSVG
   export function OneOrMore(x: any, y: any): FakeSVG
   export function ZeroOrMore(x: any, y: any): FakeSVG
   export function Comment(x: any, y: any): FakeSVG
   export function NonTerminal(x: any, y?: any): FakeSVG
   export function Terminal(x: any, y?: any): FakeSVG
-  export function Group(x: any, y?: any, z?: any): FakeSVG
 }

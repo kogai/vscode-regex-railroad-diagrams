@@ -1,7 +1,8 @@
 import regexp = require("regexp")
 
-import { Diagram, Sequence, Choice, Optional, OneOrMore, ZeroOrMore, Terminal, NonTerminal, Comment, Group } from "railroad-diagrams"
+import { Diagram, Sequence, Choice, Optional, OneOrMore, ZeroOrMore, Terminal, NonTerminal, Comment } from "railroad-diagrams"
 import { RegexString } from "./diagram"
+import { Group } from "./Group"
 
 const doSpace = () => NonTerminal("SP", { title: "Space character", class: "literal whitespace" })
 
@@ -186,7 +187,7 @@ const rx2rr = function (node: any, options: string): any {
       text += ` (${node.name})`
       min_width = 55 + ((node.name.split("").length + 3) * 7)
     }
-    return Group(rx2rr(node.body, options), Comment(text, { class: "caption" }), { minWidth: min_width, attrs: { class: "capture-group group" } })
+    return new Group(rx2rr(node.body, options), Comment(text, { class: "caption" }), { minWidth: min_width, attrs: { class: "capture-group group" } })
   }
 
   case "flags": {
@@ -226,16 +227,16 @@ const rx2rr = function (node: any, options: string): any {
     return rx2rr(node.body, options)
 
   case "positive-lookahead":
-    return Group(rx2rr(node.body, options), Comment("=> ?", { title: "Positive lookahead", class: "caption" }), { attrs: { class: "lookahead positive zero-width-assertion group" } })
+    return new Group(rx2rr(node.body, options), Comment("=> ?", { title: "Positive lookahead", class: "caption" }), { attrs: { class: "lookahead positive zero-width-assertion group" } })
 
   case "negative-lookahead":
-    return Group(rx2rr(node.body, options), Comment("!> ?", { title: "Negative lookahead", class: "caption" }), { attrs: { class: "lookahead negative zero-width-assertion group" } })
+    return new Group(rx2rr(node.body, options), Comment("!> ?", { title: "Negative lookahead", class: "caption" }), { attrs: { class: "lookahead negative zero-width-assertion group" } })
 
   case "positive-lookbehind":
-    return Group(rx2rr(node.body, options), Comment("<= ?", { title: "Positive lookbehind", class: "caption" }), { attrs: { class: "lookbehind positive zero-width-assertion group" } })
+    return new Group(rx2rr(node.body, options), Comment("<= ?", { title: "Positive lookbehind", class: "caption" }), { attrs: { class: "lookbehind positive zero-width-assertion group" } })
 
   case "negative-lookbehind":
-    return Group(rx2rr(node.body, options), Comment("<! ?", { title: "Negative lookbehind", class: "caption" }), { attrs: { class: "lookbehind negative zero-width-assertion group" } })
+    return new Group(rx2rr(node.body, options), Comment("<! ?", { title: "Negative lookbehind", class: "caption" }), { attrs: { class: "lookbehind negative zero-width-assertion group" } })
 
   case "back-reference":
     return NonTerminal(`${node.code}`, { title: `Match capture ${node.code} (Back Reference)`, class: "back-reference" })
