@@ -2,7 +2,7 @@
     "name": "regex-railroad-diagrams",
     "displayName": "Regex Railroad Diagrams",
     "description": "Display railroad diagram of regex under cursor.",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "publisher": "kogai",
     "repository": {
         "type": "git",
@@ -43,8 +43,7 @@
     },
     "dependencies": {
         "railroad-diagrams": "git+ssh://git@github.com/kogai/railroad-diagrams.git#master",
-        "regexp": "^1.0.0",
-        "rxjs": "^5.0.1"
+        "regexp": "^1.0.0"
     },
     "devDependencies": {
         "@types/mocha": "^2.2.32",

@@ -32,7 +32,7 @@ declare module "railroad-diagrams" {
 
   interface SequenceStatic extends FakeSVG {
     (x: any, y?: any): FakeSVG
-    constructor(x: any): FakeSVG
+    new(x: any): FakeSVG
   }
   export const Sequence: SequenceStatic
 
@@ -50,7 +50,7 @@ declare module "railroad-diagrams" {
   
   interface ChoiceStatic extends FakeSVG {
     (x: any, y?: any): FakeSVG
-    constructor(x: any): FakeSVG
+    new(x: any, y?: any): FakeSVG
   }
   export const Choice: ChoiceStatic
   
