@@ -29,6 +29,14 @@ describe("convert", () => {
     deepStrictEqual(diagram.attrs, { class: "railroad-diagram" })
     deepStrictEqual(diagram.items.length, 3)
   })
+  it("/https?:\/\//", () => {
+    const diagram = regexToRailRoadDiagram({
+      body: "https?:\\\/\\\/",
+    })
+    deepStrictEqual(diagram.tagName, "svg")
+    deepStrictEqual(diagram.attrs, { class: "railroad-diagram" })
+    deepStrictEqual(diagram.items.length, 3)
+  })
   it("/\/(.*[^\/])\/(?!\/)([gimy]*)+/g;", () => {
     const diagram = regexToRailRoadDiagram({
       body: "\\\/(.*[^\\\/])\\\/(?!\\\/)([gimy]*)+",

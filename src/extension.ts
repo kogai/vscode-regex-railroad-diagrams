@@ -1,5 +1,5 @@
-import {window, ExtensionContext, commands, workspace, ViewColumn} from "vscode"
-import {RegExpProvider, PREVIEW_URI, PREVIEW_PROTCOL} from "./element"
+import { window, ExtensionContext, commands, workspace, ViewColumn } from "vscode"
+import { RegExpProvider, PREVIEW_URI, PREVIEW_PROTCOL } from "./element"
 
 /**
  * Entry point of extension.
@@ -8,9 +8,9 @@ export function activate(context: ExtensionContext) {
   const provider = new RegExpProvider()
   context.subscriptions.push(workspace.registerTextDocumentContentProvider(PREVIEW_PROTCOL, provider))
   context.subscriptions.push(commands.registerCommand("extension.showRegExpPreview", () => commands
-      .executeCommand("vscode.previewHtml", PREVIEW_URI, ViewColumn.Two, "RegExp Diagram Preview")
-      .then((success) => {}, window.showErrorMessage)
-    ))
+    .executeCommand("vscode.previewHtml", PREVIEW_URI, ViewColumn.Two, "RegExp Diagram Preview")
+    .then((success) => { }, window.showErrorMessage)
+  ))
 
   workspace.onDidChangeTextDocument(event => {
     const editor = window.activeTextEditor
@@ -28,4 +28,4 @@ export function activate(context: ExtensionContext) {
   })
 }
 
-export function deactivate() {}
+export function deactivate() { }

@@ -1,4 +1,4 @@
-import {Terminal, Diagram, Skip, FakeSVG, Path} from "railroad-diagrams"
+import { Terminal, Diagram, Skip, FakeSVG, Path } from "railroad-diagrams"
 
 const isString = (value: any): value is string => {
   return (typeof value) == "string"
@@ -10,15 +10,15 @@ const wrapString = (value: any, attrs?: any): FakeSVG => {
 
 const determineGaps = (outer: any, inner: any) => {
   const diff = outer - inner
-  switch(Diagram.INTERNAL_ALIGNMENT) {
-  case "left":
-    return [0, diff]
-  case "right":
-    return [diff, 0]
-  // case "center":
-  //   return
-  default:
-    return [diff / 2, diff / 2]
+  switch (Diagram.INTERNAL_ALIGNMENT) {
+    case "left":
+      return [0, diff]
+    case "right":
+      return [diff, 0]
+    // case "center":
+    //   return
+    default:
+      return [diff / 2, diff / 2]
   }
 }
 
@@ -33,7 +33,7 @@ export class Group extends Skip {
   constructor(
     item: FakeSVG,
     caption: FakeSVG,
-    options: {minWidth?: number, attrs?: { class: string }} = {}
+    options: { minWidth?: number, attrs?: { class: string } } = {}
   ) {
     super("g", options.attrs)
     this.item = wrapString(item)

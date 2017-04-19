@@ -1,7 +1,7 @@
-import {TextDocumentContentProvider, Uri, EventEmitter, window} from "vscode"
+import { TextDocumentContentProvider, Uri, EventEmitter, window } from "vscode"
 
-import {extractRegex} from "./diagram"
-import {regexToRailRoadDiagram} from "./convert"
+import { extractRegex } from "./diagram"
+import { regexToRailRoadDiagram } from "./convert"
 
 export const PREVIEW_PROTCOL = "regex-railroad-diagram"
 export const PREVIEW_URI = Uri.parse(`${PREVIEW_PROTCOL}://authority/regex-preview`)
@@ -22,7 +22,7 @@ export class RegExpProvider implements TextDocumentContentProvider {
     if (!editor) {
       return
     }
-    const {anchor} = editor.selection
+    const { anchor } = editor.selection
     const regexStrings = extractRegex(editor.document.lineAt(anchor.line).text)
     if (!regexStrings) {
       return
