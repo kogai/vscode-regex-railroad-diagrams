@@ -14,5 +14,5 @@ sandbox.*
 .eslintrc.json
 references.d.ts
 TODO
-typings/
+typings/**
 sandbox.*
