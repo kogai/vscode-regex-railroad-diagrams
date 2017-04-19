@@ -1,3 +1,5 @@
+import { isEmpty } from "ramda"
+
 export interface RegexString {
   body: string
   option?: string
@@ -25,9 +27,13 @@ export const extractRegex = (s: string): RegexString[] => {
     /\/(.*[^\/])\/(?!\/)([gimy]*)+/g,
     /\/(.*)\/([gimy]*)+/g,
   ]
-
-  return rxs
-    .map(match(s))
-    .reduce((acc, r) => acc.concat(r), [])
-    .filter((r, i) => i === 0)
+  const matcher = match(s)
+  for (let i = 0; i < rxs.length; i++) {
+    const rx = rxs[i]
+    const matched = matcher(rx)
+    if (!isEmpty(matched)) {
+      return matched
+    }
+  }
+  return []
 }

@@ -11,14 +11,14 @@ const wrapString = (value: any, attrs?: any): FakeSVG => {
 const determineGaps = (outer: any, inner: any) => {
   const diff = outer - inner
   switch (Diagram.INTERNAL_ALIGNMENT) {
-    case "left":
-      return [0, diff]
-    case "right":
-      return [diff, 0]
+  case "left":
+    return [0, diff]
+  case "right":
+    return [diff, 0]
     // case "center":
     //   return
-    default:
-      return [diff / 2, diff / 2]
+  default:
+    return [diff / 2, diff / 2]
   }
 }
 
