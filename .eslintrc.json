@@ -3,7 +3,13 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "parserOptions": {
         "sourceType": "module"
     },
@@ -24,6 +30,7 @@
             "error",
             "never"
         ],
+        "no-useless-escape": 0,
         "no-unused-vars": 0,
         "no-undef": 0,
         "no-console": "warn"
