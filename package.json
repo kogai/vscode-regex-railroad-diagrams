@@ -28,18 +28,19 @@
     },
     "main": "./out/src/extension",
     "scripts": {
-        "lint": "eslint src/*.ts",
         "vscode:prepublish": "tsc -p ./ && npm update",
-        "compile": "tsc -watch -p ./",
+        "build": "tsc ./",
+        "build:watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "package": "vsce package",
         "publish": "vsce publish -p $VISUAL_STUDIO_CODE_ACCESS_TOKEN",
         "publish:minor": "npm run publish -- minor",
         "publish:patch": "npm run publish -- patch",
         "test:e2e": "node ./node_modules/vscode/bin/test",
-        "test:unit": "mocha ./out/src/*.test.js",
+        "test:lint": "eslint src/*.ts",
+        "test:unit": "npm run build && mocha ./out/src/*.test.js",
         "test:unit:watch": "watch 'npm run test:unit' ./src/",
-        "test": "npm run lint && tsc && npm run test:unit"
+        "test": "npm run test:lint && npm run test:unit"
     },
     "dependencies": {
         "escape-string-regexp": "1.0.5",
