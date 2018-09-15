@@ -8,14 +8,18 @@ references:
     restore_cache:
       name: Restore cache
       keys:
-        - npm-{{ checksum "package-lock.json" }}
-        - npm-
+        - cache-{{ checksum "package-lock.json" }}
+        - cache-
+  install_git: &install_git
+    run:
+      name: Install git
+      command: |
+        apk --update --no-cache add git build-base
   install_node_modules: &install_node_modules
     run:
       name: Install dependencies
       command: |
-        apk --update --no-cache add git build-base
-        npm install
+        npm install --unsafe-perm --no-save
   test: &test
     run:
       name: Do test
@@ -24,7 +28,7 @@ references:
   save_cache: &save_cache
     save_cache:
       name: Save cache
-      key: npm-{{ checksum "package-lock.json" }}
+      key: cache-{{ checksum "package-lock.json" }}
       paths:
         - ~/.npm
         - ~/app/node_modules
@@ -33,7 +37,8 @@ jobs:
     <<: *docker_container_of_nodejs
     steps:
       - checkout
-      # - *restore_cache
+      - *restore_cache
+      - *install_git
       - *install_node_modules
       - *save_cache
       - run:
@@ -45,6 +50,7 @@ jobs:
     steps:
       - checkout
       # - *restore_cache
+      - *install_git
       - *install_node_modules
       - *save_cache
       - run:
