@@ -54,6 +54,7 @@
         "@types/ramda": "^0.0.7",
         "eslint": "^3.12.2",
         "mocha": "^3.2.0",
+        "renovate": "^13.67.1",
         "typescript": "2.2.2",
         "typescript-eslint-parser": "^2.1.0",
         "vsce": "^1.18.0",
