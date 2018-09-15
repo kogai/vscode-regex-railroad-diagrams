@@ -38,8 +38,8 @@
         "publish:patch": "npm run publish -- patch",
         "test:e2e": "node ./node_modules/vscode/bin/test",
         "test:unit": "script -q /dev/null mocha $(find ./out/src -name '*.test.js') | grep -v -x -F 'npm ERR'",
-        "test:unit:watch": "watch 'yarn test:unit' ./src/",
-        "test": "yarn lint && yarn tsc && yarn test:unit"
+        "test:unit:watch": "watch 'npm run test:unit' ./src/",
+        "test": "npm run lint && npm run tsc && npm run test:unit"
     },
     "dependencies": {
         "escape-string-regexp": "^1.0.5",
