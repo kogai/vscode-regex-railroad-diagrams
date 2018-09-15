@@ -49,11 +49,11 @@
     },
     "devDependencies": {
         "@types/escape-string-regexp": "0.0.30",
-        "@types/mocha": "2.2.40",
+        "@types/mocha": "5.2.5",
         "@types/node": "7.0.12",
         "@types/ramda": "0.0.7",
         "eslint": "3.19.0",
-        "mocha": "3.2.0",
+        "mocha": "5.2.0",
         "renovate": "13.67.1",
         "typescript": "2.2.2",
         "typescript-eslint-parser": "18.0.0",
