@@ -28,9 +28,9 @@
     },
     "main": "./out/src/extension",
     "scripts": {
-        "vscode:prepublish": "tsc -p ./ && npm update",
-        "build": "tsc ./",
-        "build:watch": "tsc -watch -p ./",
+        "vscode:prepublish": "tsc && npm update",
+        "build": "tsc",
+        "build:watch": "tsc -watch",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "package": "vsce package",
         "publish": "vsce publish -p $VISUAL_STUDIO_CODE_ACCESS_TOKEN",
