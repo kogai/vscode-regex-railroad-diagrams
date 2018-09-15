@@ -57,7 +57,7 @@
         "renovate": "13.67.1",
         "typescript": "2.2.2",
         "typescript-eslint-parser": "2.1.0",
-        "vsce": "1.20.0",
+        "vsce": "1.48.0",
         "vscode": "1.1.0",
         "watch": "1.0.2"
     }
