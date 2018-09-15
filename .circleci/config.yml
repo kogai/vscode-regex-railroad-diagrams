@@ -14,7 +14,7 @@ references:
     run:
       name: Install git
       command: |
-        apk --update --no-cache add git build-base
+        apk --update --no-cache add git build-base python
   install_node_modules: &install_node_modules
     run:
       name: Install dependencies
@@ -45,6 +45,10 @@ jobs:
           name: Test
           command: |
             npm test
+      - run:
+          name: Update
+          command: |
+            npx renovate --token "$GITHUB_ACCESS_TOKEN_RENOVATE" kogai/vscode-regex-railroad-diagrams
   npm_update:
     <<: *docker_container_of_nodejs
     steps:
@@ -66,8 +70,7 @@ workflows:
   update:
     triggers:
       - schedule:
-          # cron: "0 15 * * 5"
-          cron: "25 * * * *"
+          cron: "0 15 * * *"
           filters:
             branches:
               only:
