@@ -44,14 +44,14 @@
     "dependencies": {
         "escape-string-regexp": "^1.0.5",
         "railroad-diagrams": "git://github.com/kogai/railroad-diagrams.git#master",
-        "ramda": "^0.23.0",
+        "ramda": "^0.25.0",
         "regexp": "^1.0.0"
     },
     "devDependencies": {
         "@types/escape-string-regexp": "^0.0.30",
         "@types/mocha": "^2.2.32",
         "@types/node": "^7.0.12",
-        "@types/ramda": "^0.0.7",
+        "@types/ramda": "0.25.38",
         "eslint": "^3.12.2",
         "mocha": "^3.2.0",
         "typescript": "2.2.2",
