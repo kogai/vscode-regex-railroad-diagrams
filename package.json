@@ -37,15 +37,15 @@
         "publish:minor": "npm run publish -- minor",
         "publish:patch": "npm run publish -- patch",
         "test:e2e": "node ./node_modules/vscode/bin/test",
-        "test:unit": "script -q /dev/null mocha $(find ./out/src -name '*.test.js') | grep -v -x -F 'npm ERR'",
+        "test:unit": "mocha ./out/src/*.test.js",
         "test:unit:watch": "watch 'npm run test:unit' ./src/",
-        "test": "npm run lint && tsc"
+        "test": "npm run lint && tsc && npm run test:unit"
     },
     "dependencies": {
-        "escape-string-regexp": "^1.0.5",
+        "escape-string-regexp": "1.0.5",
         "railroad-diagrams": "git://github.com/kogai/railroad-diagrams.git#master",
-        "ramda": "^0.25.0",
-        "regexp": "^1.0.0"
+        "ramda": "0.25.0",
+        "regexp": "1.0.0"
     },
     "devDependencies": {
         "@types/escape-string-regexp": "1.0.0",
