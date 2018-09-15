@@ -39,7 +39,7 @@
         "test:e2e": "node ./node_modules/vscode/bin/test",
         "test:unit": "script -q /dev/null mocha $(find ./out/src -name '*.test.js') | grep -v -x -F 'npm ERR'",
         "test:unit:watch": "watch 'npm run test:unit' ./src/",
-        "test": "npm run lint && npm run tsc && npm run test:unit"
+        "test": "npm run lint && tsc"
     },
     "dependencies": {
         "escape-string-regexp": "^1.0.5",

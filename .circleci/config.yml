@@ -1,0 +1,70 @@
+version: 2
+references:
+  docker_container_of_nodejs: &docker_container_of_nodejs
+    docker:
+      - image: node:9.8.0-alpine
+    working_directory: ~/app
+  restore_cache: &restore_cache
+    restore_cache:
+      name: Restore cache
+      keys:
+        - npm-{{ checksum "package-lock.json" }}
+        - npm-
+  install_node_modules: &install_node_modules
+    run:
+      name: Install dependencies
+      command: |
+        apk --update --no-cache add git build-base
+        npm install
+  test: &test
+    run:
+      name: Do test
+      command: |
+        npm test
+  save_cache: &save_cache
+    save_cache:
+      name: Save cache
+      key: npm-{{ checksum "package-lock.json" }}
+      paths:
+        - ~/.npm
+        - ~/app/node_modules
+jobs:
+  npm_test:
+    <<: *docker_container_of_nodejs
+    steps:
+      - checkout
+      # - *restore_cache
+      - *install_node_modules
+      - *save_cache
+      - run:
+          name: Test
+          command: |
+            npm test
+  npm_update:
+    <<: *docker_container_of_nodejs
+    steps:
+      - checkout
+      # - *restore_cache
+      - *install_node_modules
+      - *save_cache
+      - run:
+          name: Update
+          command: |
+            npx renovate --token "$GITHUB_ACCESS_TOKEN_RENOVATE" kogai/vscode-regex-railroad-diagrams
+  
+workflows:
+  version: 2
+  ordinary_workflow:
+    jobs:
+      - npm_test
+  update:
+    triggers:
+      - schedule:
+          # cron: "0 15 * * 5"
+          cron: "0 * * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - npm_update
