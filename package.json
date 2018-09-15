@@ -56,9 +56,9 @@
         "mocha": "5.2.0",
         "renovate": "13.67.1",
         "typescript": "2.2.2",
-        "typescript-eslint-parser": "2.1.0",
-        "vsce": "1.20.0",
-        "vscode": "1.1.0",
+        "typescript-eslint-parser": "18.0.0",
+        "vsce": "1.48.0",
+        "vscode": "1.1.21",
         "watch": "1.0.2"
     }
 }
