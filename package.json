@@ -48,16 +48,16 @@
         "regexp": "^1.0.0"
     },
     "devDependencies": {
-        "@types/escape-string-regexp": "^0.0.30",
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^7.0.12",
-        "@types/ramda": "^0.0.7",
-        "eslint": "^3.12.2",
-        "mocha": "^3.2.0",
+        "@types/escape-string-regexp": "0.0.30",
+        "@types/mocha": "2.2.40",
+        "@types/node": "7.0.12",
+        "@types/ramda": "0.0.7",
+        "eslint": "3.19.0",
+        "mocha": "3.2.0",
         "typescript": "2.2.2",
-        "typescript-eslint-parser": "^2.1.0",
-        "vsce": "^1.18.0",
-        "vscode": "^1.0.0",
-        "watch": "^1.0.1"
+        "typescript-eslint-parser": "2.1.0",
+        "vsce": "1.20.0",
+        "vscode": "1.1.0",
+        "watch": "1.0.2"
     }
 }
