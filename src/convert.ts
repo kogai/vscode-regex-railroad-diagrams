@@ -219,11 +219,11 @@ const rx2rr = function (node: any, options: string): any {
     }
 
     return NonTerminal(`SET: ${node.body.join("")}`, { title: _title.join("\n"), class: "zero-width-assertion" })
-      //NonTerminal("WORD", title: "Word character A-Z, 0-9, _", class: 'character-class')
+    //NonTerminal("WORD", title: "Word character A-Z, 0-9, _", class: 'character-class')
   }
 
   case "non-capture-group":
-      // Group rx2rr(node.body, options), null, attrs: {class: 'group'}
+    // Group rx2rr(node.body, options), null, attrs: {class: 'group'}
     return rx2rr(node.body, options)
 
   case "positive-lookahead":
@@ -248,7 +248,7 @@ const rx2rr = function (node: any, options: string): any {
       } else if (node.body === "Z") {
         return doEndOfString()
       } else {
-          //Terminal("\\"+node.body)
+        //Terminal("\\"+node.body)
         return Terminal(node.body, { class: "literal" })
       }
     } else {
@@ -326,8 +326,8 @@ const rx2rr = function (node: any, options: string): any {
       }
     } else {
       const list = charset
-          .slice(0, -1)
-          .join(",")
+        .slice(0, -1)
+        .join(",")
 
       if (node.invert) {
         return NonTerminal(`not ${list} and ${charset.slice(-1)}`, { class: "character-class invert" })
