@@ -58,7 +58,7 @@
         "typescript": "2.2.2",
         "typescript-eslint-parser": "18.0.0",
         "vsce": "1.48.0",
-        "vscode": "1.1.0",
+        "vscode": "1.1.21",
         "watch": "1.0.2"
     }
 }
