@@ -54,7 +54,7 @@
         "@types/node": "7.0.12",
         "@types/ramda": "0.25.38",
         "eslint": "5.6.0",
-        "eslint-config-prettier": "3.0.1",
+        "eslint-config-prettier": "3.1.0",
         "eslint-plugin-prettier": "2.6.2",
         "mocha": "5.2.0",
         "renovate": "13.73.2",
