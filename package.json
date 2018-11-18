@@ -45,7 +45,7 @@
     "dependencies": {
         "escape-string-regexp": "1.0.5",
         "railroad-diagrams": "git://github.com/kogai/railroad-diagrams.git#master",
-        "ramda": "0.25.0",
+        "ramda": "0.26.0",
         "regexp": "1.0.0"
     },
     "devDependencies": {
